@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pbr_baker", "pbr_baker.vcxproj", "{3C7B4D7A-B4B6-45EE-9E54-4AAA56C4FA59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Develop|x64 = Develop|x64
+		Develop|x86 = Develop|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C7B4D7A-B4B6-45EE-9E54-4AAA56C4FA59}.Develop|x64.ActiveCfg = Develop|x64
+		{3C7B4D7A-B4B6-45EE-9E54-4AAA56C4FA59}.Develop|x64.Build.0 = Develop|x64
+		{3C7B4D7A-B4B6-45EE-9E54-4AAA56C4FA59}.Develop|x86.ActiveCfg = Develop|Win32
+		{3C7B4D7A-B4B6-45EE-9E54-4AAA56C4FA59}.Develop|x86.Build.0 = Develop|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BABB517-A83E-4B5E-9A93-8134633A2C78}
+	EndGlobalSection
+EndGlobal
