@@ -20,15 +20,20 @@
 #include "common.h"
 #include "env_brdf.h"
 #include "multiscatter_brdf.h"
+#include "gloss_normal.h"
+#include "blackbody.h"
+#include "noise.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include <stb/stb_image_write.h>
+
+#include <cxxopts/include/cxxopts.hpp>
 
 using namespace glm;
 
 vec4 baker_testFunction( float x, float y )
 {
-    return vec4( 1.0f, 0.5f, 0.2f, 1.0f );
+    return vec4( 1.0f, 0.5f, 0.1f, 1.0f );
 }
 
 void baker_imageFunction2D( std::function< vec4( float x, float y ) > func, int res, std::string outputFileName )
@@ -76,10 +81,48 @@ void baker_imageFunction2D( std::function< vec4( float x, float y ) > func, int 
     printf( "    Output to %s OK.\n\n", outputFileName.c_str() );
 }
 
-int main()
+int main( int argc, char *argv[] )
 {
-    // baker_imageFunction2D( baker_testFunction, 64, "output/test_output.png" );
-    // bake_multiscatterBRDF();
-    bake_envBRDF();
+    cxxopts::Options options( "pbr_baker", "Simple open source multi-functional baking tool for PBR material related work." );
+    
+    options.add_options()
+        ( "m,multiscatter_brdf", "Bake multi-scatter BRDF components.", cxxopts::value< bool >() )
+        ( "e,env_brdf", "Bake GGX NDF - environment BRDF table.", cxxopts::value< bool >() )
+        ( "n,noise", "Output some noise textures.", cxxopts::value< bool >() )
+        ( "b,blackbody", "Bake black body radiation lookup table and .", cxxopts::value< bool >() )
+        ( "g,gloss_normal", "Bake gloss average normal table and gloss blend table.", cxxopts::value< bool >() )
+        ( "t,test", "Test random functionality.", cxxopts::value< bool >() )
+        ( "h,help", "Display help", cxxopts::value< bool >() )
+        ;
+    auto result = options.parse( argc, argv );
+
+    // Display help info.
+    //
+    auto args = result.arguments();
+    if ( !args.size() || result["help"].as< bool >() ) {
+        auto helpstr = options.help();
+        printf( "%s\n", helpstr.c_str() );
+        return 0;
+    }
+
+    if( result["multiscatter_brdf"].as< bool >() )
+        bake_multiscatterBRDF();
+    
+    if( result["env_brdf"].as< bool >() )
+        bake_envBRDF();
+
+    if( result["noise"].as< bool >() )
+        bake_noiseTextures();
+
+    if( result["blackbody"].as< bool >() )
+        bake_blackBody();
+    
+    if( result["gloss_normal"].as< bool >() )
+        bake_glossNormalTable();
+
+    if( result["test"].as< bool >() )
+        baker_imageFunction2D( baker_testFunction, 64, "output/test_output.png" );
+
+    return 0;
 }
 

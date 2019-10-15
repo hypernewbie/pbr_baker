@@ -23,7 +23,7 @@ using namespace glm;
 #include <hammersley/hammersley.h>
 #include <hammersley/hammersley.c>
 
-#define ENVBRDF_SAMPLE_SIZE 1024
+#define ENVBRDF_SAMPLE_SIZE 8192
 #define HAMMERSLEY_SEQUENCE_N ENVBRDF_SAMPLE_SIZE
 #define HAMMERSLEY_SEQUENCE_M 2
 #define TEST_HAMMERSLEY false

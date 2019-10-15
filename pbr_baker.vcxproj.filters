@@ -4,10 +4,18 @@
     <ClCompile Include="pbr_baker.cpp" />
     <ClCompile Include="multiscatter_brdf.cpp" />
     <ClCompile Include="env_brdf.cpp" />
+    <ClCompile Include="noise.cpp" />
+    <ClCompile Include="blackbody.cpp" />
+    <ClCompile Include="gloss_normal.cpp" />
+    <ClCompile Include="optim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="env_brdf.h" />
     <ClInclude Include="multiscatter_brdf.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="noise.h" />
+    <ClInclude Include="blackbody.h" />
+    <ClInclude Include="gloss_normal.h" />
+    <ClInclude Include="optim.h" />
   </ItemGroup>
 </Project>
