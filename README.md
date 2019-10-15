@@ -1,12 +1,31 @@
 # PBR Baker
 
-Simple open source multi-functional baking tool for BRDF, containing various techniques from the SIGGRAPH 2018 presentation "Material Advances in Call of Duty: WWII" by Danny Chan.
+Simple open source multi-functional baking tool for PBR material ralted work, inspired by various techniques from the SIGGRAPH 2018 presentation "Material Advances in Call of Duty: WWII" by Danny Chan.
 
 Written in mostly portable C++. Uses glm and stb libraries.
 
 ## Features
-------
 * Environment BRDF lookup table - Karis'13
+* Simple noise texture generation ( only white noise for now )
+* Black body radiation table
+* GGX gloss to average normal length table bake - Chan'18
+* GGX gloss combine lookup texture bake - Chan'18
+
+## Usage
+```
+Simple open source multi-functional baking tool for PBR material related work.
+Usage:
+  pbr_baker [OPTION...]
+
+  -m, --multiscatter_brdf  Bake multi-scatter BRDF components.
+  -e, --env_brdf           Bake GGX NDF - environment BRDF table.
+  -n, --noise              Output some noise textures.
+  -b, --blackbody          Bake black body radiation lookup table and .
+  -g, --gloss_normal       Bake gloss average normal table and gloss blend
+                           table.
+  -t, --test               Test random functionality.
+  -h, --help               Display help
+```
 
 ## Compiling
 1. Install Visual Studio 2017 with C++ support
