@@ -8,6 +8,7 @@
     <ClCompile Include="blackbody.cpp" />
     <ClCompile Include="gloss_normal.cpp" />
     <ClCompile Include="optim.cpp" />
+    <ClCompile Include="subsurface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="env_brdf.h" />
@@ -17,5 +18,6 @@
     <ClInclude Include="blackbody.h" />
     <ClInclude Include="gloss_normal.h" />
     <ClInclude Include="optim.h" />
+    <ClInclude Include="subsurface.h" />
   </ItemGroup>
 </Project>

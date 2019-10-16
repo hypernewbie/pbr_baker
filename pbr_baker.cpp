@@ -22,6 +22,7 @@
 #include "multiscatter_brdf.h"
 #include "gloss_normal.h"
 #include "blackbody.h"
+#include "subsurface.h"
 #include "noise.h"
 
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -91,6 +92,7 @@ int main( int argc, char *argv[] )
         ( "n,noise", "Output some noise textures.", cxxopts::value< bool >() )
         ( "b,blackbody", "Bake black body radiation lookup table and .", cxxopts::value< bool >() )
         ( "g,gloss_normal", "Bake gloss average normal table and gloss blend table.", cxxopts::value< bool >() )
+        ( "s,subsurface", "Bake subsurface scattering lookup textures.", cxxopts::value< bool >() )
         ( "t,test", "Test random functionality.", cxxopts::value< bool >() )
         ( "h,help", "Display help", cxxopts::value< bool >() )
         ;
@@ -119,6 +121,9 @@ int main( int argc, char *argv[] )
     
     if( result["gloss_normal"].as< bool >() )
         bake_glossNormalTable();
+
+    if( result["subsurface"].as< bool >() )
+        bake_subsurface();
 
     if( result["test"].as< bool >() )
         baker_imageFunction2D( baker_testFunction, 64, "output/test_output.png" );

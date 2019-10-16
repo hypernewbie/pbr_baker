@@ -10,6 +10,8 @@ Written in mostly portable C++. Uses glm and stb libraries.
 * Black body radiation table
 * GGX gloss to average normal length table bake - Chan'18
 * GGX gloss combine lookup texture bake - Chan'18
+* Pre-integrated Skin Scattering - Penner et. al
+* Gaussian / smoothstep wrapped lighting tables
 
 ## Usage
 ```
@@ -23,6 +25,7 @@ Usage:
   -b, --blackbody          Bake black body radiation lookup table and .
   -g, --gloss_normal       Bake gloss average normal table and gloss blend
                            table.
+  -s, --subsurface         Bake subsurface scattering lookup textures.
   -t, --test               Test random functionality.
   -h, --help               Display help
 ```

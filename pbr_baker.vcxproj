@@ -98,6 +98,7 @@
     <ClCompile Include="noise.cpp" />
     <ClCompile Include="optim.cpp" />
     <ClCompile Include="pbr_baker.cpp" />
+    <ClCompile Include="subsurface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="blackbody.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="multiscatter_brdf.h" />
     <ClInclude Include="noise.h" />
     <ClInclude Include="optim.h" />
+    <ClInclude Include="subsurface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
