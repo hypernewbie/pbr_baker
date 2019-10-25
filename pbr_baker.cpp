@@ -37,6 +37,11 @@ vec4 baker_testFunction( float x, float y )
     return vec4( 1.0f, 0.5f, 0.1f, 1.0f );
 }
 
+vec4 baker_testFunctionXY( float x, float y )
+{
+    return vec4( x, y, 0, 1.0f );
+}
+
 void baker_imageFunction2D( std::function< vec4( float x, float y ) > func, int res, std::string outputFileName )
 {
     std::vector< vec4 > pixels;
@@ -126,7 +131,10 @@ int main( int argc, char *argv[] )
         bake_subsurface();
 
     if( result["test"].as< bool >() )
+    {
         baker_imageFunction2D( baker_testFunction, 64, "output/test_output.png" );
+        baker_imageFunction2D( baker_testFunctionXY, 256, "output/test_outputXY.png" );
+    }
 
     return 0;
 }

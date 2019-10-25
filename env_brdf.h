@@ -20,7 +20,7 @@
 #pragma once
 #include "common.h"
 
-glm::vec2 noise_getHammersleyAtIdx( int idx );
+glm::vec2 noise_getHammersleyAtIdx( int idx, int N );
 float ggx_GlossToAlpha2( float gloss );
 glm::vec3 ggx_ImportanceSampleGGX( glm::vec2 xi, float alpha2, glm::vec3 N );
 float ggx_SmithGeom( float NdotL, float NdotV, float alpha2 );

@@ -33,7 +33,7 @@ float glossNormal_IntegrateGlossNormalGGX( float gloss )
 
     for( uint i = 0; i < GLOSSNORMAL_SAMPLE_SIZE; i++ )
     {
-        auto xi = noise_getHammersleyAtIdx( i );
+        auto xi = noise_getHammersleyAtIdx( i, GLOSSNORMAL_SAMPLE_SIZE );
         auto H = ggx_ImportanceSampleGGX( xi, alpha2, N );
         averageNormal += H;
     }
